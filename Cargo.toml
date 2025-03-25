@@ -1,0 +1,53 @@
+[package]
+name = "my_devildaggers"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = { workspace = true }
+bevy_dylib = { workspace = true }
+game_resources = { workspace = true }
+
+[workspace.dependencies]
+bevy = { version = "*", default-features = false, features = [
+    "multi_threaded",
+    "bevy_sprite",
+    "bevy_sprite_picking_backend",
+    "custom_cursor",
+    "bevy_winit",
+    "bevy_ui_picking_backend",
+    "bevy_ui",
+    "bevy_window",
+    "bevy_text",
+    "bevy_state",
+    "bevy_picking",
+    "bevy_render",
+    "bevy_core_pipeline",
+    "bevy_color",
+    "bevy_asset",
+    "default_font",
+    "wayland",
+    "dynamic_linking",
+    "png",
+] }
+bevy_dylib = "*"
+game_resources = { path = "crates/game_resources" }
+
+[workspace]
+resolver = "2"
+members = ["crates/game_resources"]
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release.package."*"]
+opt-level = 3
+codegen-units = 1
+debug = false
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = 'abort'
+debug = false
