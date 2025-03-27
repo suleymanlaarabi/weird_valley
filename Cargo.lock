@@ -2244,15 +2244,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "my_devildaggers"
-version = "0.1.0"
-dependencies = [
- "bevy",
- "bevy_dylib",
- "game_resources",
-]
-
-[[package]]
 name = "naga"
 version = "23.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3817,6 +3808,15 @@ checksum = "5a6580f308b1fad9207618087a65c04e7a10bc77e02c8e84e9b00dd4b12fa0bb"
 dependencies = [
  "js-sys",
  "wasm-bindgen",
+]
+
+[[package]]
+name = "weird_valley"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+ "bevy_dylib",
+ "game_resources",
 ]
 
 [[package]]

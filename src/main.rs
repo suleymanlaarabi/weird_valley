@@ -21,5 +21,6 @@ fn main() {
             }),
             ..default()
         }))
+        .insert_resource(ClearColor(Color::WHITE))
         .run();
 }
