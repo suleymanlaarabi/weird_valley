@@ -7,10 +7,16 @@ edition = "2024"
 bevy = { workspace = true }
 bevy_dylib = { workspace = true }
 game_resources = { workspace = true }
+zestalive = { workspace = true }
+animation_plugin = { workspace = true }
+ecs_common = { workspace = true }
+velox2d = { workspace = true }
+
 
 [workspace.dependencies]
 bevy = { version = "*", default-features = false, features = [
     "multi_threaded",
+    "bevy_image",
     "bevy_sprite",
     "bevy_sprite_picking_backend",
     "custom_cursor",
@@ -32,10 +38,22 @@ bevy = { version = "*", default-features = false, features = [
 ] }
 bevy_dylib = "*"
 game_resources = { path = "crates/game_resources" }
+zestalive = { path = "crates/zestalive" }
+ecs_common = { path = "crates/ecs_common" }
+iweird = { path = "crates/iweird" }
+animation_plugin = { path = "crates/animation_plugin" }
+velox2d = { path = "crates/velox2d" }
 
 [workspace]
 resolver = "2"
-members = ["crates/game_resources"]
+members = [
+    "crates/ecs_common",
+    "crates/game_resources",
+    "crates/zestalive",
+    "crates/iweird",
+    "crates/animation_plugin",
+    "crates/velox2d",
+]
 
 [profile.dev.package."*"]
 opt-level = 3
