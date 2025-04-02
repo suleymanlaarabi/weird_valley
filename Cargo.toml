@@ -11,10 +11,17 @@ zestalive = { workspace = true }
 animation_plugin = { workspace = true }
 ecs_common = { workspace = true }
 velox2d = { workspace = true }
-
+avian2d = { workspace = true }
+interact_plugin = { workspace = true }
+fruvibe_ui = { workspace = true }
+inventory_ui = { workspace = true }
 
 [workspace.dependencies]
-bevy = { version = "*", default-features = false, features = [
+avian2d = { git = "https://github.com/Jondolf/avian", branch = "main", features = [
+    "debug-plugin",
+    "simd",
+] }
+bevy = { version = "0.16.0-rc.3", default-features = false, features = [
     "multi_threaded",
     "bevy_image",
     "bevy_sprite",
@@ -41,8 +48,11 @@ game_resources = { path = "crates/game_resources" }
 zestalive = { path = "crates/zestalive" }
 ecs_common = { path = "crates/ecs_common" }
 iweird = { path = "crates/iweird" }
-animation_plugin = { path = "crates/animation_plugin" }
+animation_plugin = { path = "../beekit_plugins/animation_plugin" }
 velox2d = { path = "crates/velox2d" }
+interact_plugin = { path = "crates/interact_plugin" }
+fruvibe_ui = { path = "crates/fruvibe_ui" }
+inventory_ui = { path = "crates/inventory_ui" }
 
 [workspace]
 resolver = "2"
@@ -51,8 +61,10 @@ members = [
     "crates/game_resources",
     "crates/zestalive",
     "crates/iweird",
-    "crates/animation_plugin",
     "crates/velox2d",
+    "crates/interact_plugin",
+    "crates/fruvibe_ui",
+    "crates/inventory_ui",
 ]
 
 [profile.dev.package."*"]

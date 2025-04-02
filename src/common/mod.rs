@@ -2,14 +2,14 @@ use bevy::{prelude::*, window::PrimaryWindow};
 
 pub fn despawn_all<T: Component>(mut commands: Commands, query: Query<Entity, With<T>>) {
     for entity in &query {
-        commands.entity(entity).despawn_recursive();
+        commands.entity(entity).despawn();
     }
 }
 
 pub fn set_cursor_visibility<const T: bool>(
     mut primary_window: Query<&mut Window, With<PrimaryWindow>>,
 ) {
-    let mut window = primary_window.single_mut();
+    let mut window = primary_window.single_mut().expect("Window not available");
 
     window.cursor_options.visible = T;
 }

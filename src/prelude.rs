@@ -1,3 +1,4 @@
+pub use avian2d::prelude::*;
 pub use bevy::prelude::*;
 
 #[macro_export]
@@ -20,7 +21,8 @@ macro_rules! component {
 macro_rules! components {
     ($($name:ident),*) => {
         $(
-            component!($name);
+            #[derive(bevy::ecs::component::Component, Default, Clone, Debug)]
+            pub struct $name;
         )*
     };
 }
